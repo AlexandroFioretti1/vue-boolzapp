@@ -10,7 +10,7 @@
     --wtzp-accent: #009688;
     --wtzp-neutral: #dadbd3;
     --wtzp-notification: #8edafc;
-    --wtzp-canvas: #eaeaea;
+    --wtzp-coms: #eaeaea;
     --wtzp-primary: #d5f9ba;
     --wtzp-bg-message: #f3eeea;
     --wtzp-icons: #b1b1b1;
@@ -44,15 +44,34 @@ body {
     height: 95%;
 }
 
-.cont_left {
-    width: 30%;
-    height: 900px;
-    background-color: var(--wtzp-notification);
+.row {
+    height: 100%;
+    width: 100%;
 }
+
+/* #End Region Container chat */
+/* region commons for cont right and left */
+.top_div_head {
+    height: 70px;
+    width: 100%;
+    background-color: var(--wtzp-coms);
+}
+
+/* #End region commons for cont right and left */
+/* region cont right */
 
 .cont_right {
     width: 70%;
     background-color: var(--wtzp-white);
+    border-left: 1px solid var(--wtzp-icons);
 }
 
-/* #End Region Container chat */
+/* #End region cont right */
+/* region cont left */
+.cont_left {
+    width: 30%;
+    height: 100%;
+    background-color: var(--wtzp-notification);
+}
+
+/* #End region cont left */
