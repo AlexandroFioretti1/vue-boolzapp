@@ -3,3 +3,56 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+/* region root */
+:root {
+    --font-whatsapp: Helvetica, sans-serif;
+    --wtzp-accent: #009688;
+    --wtzp-neutral: #dadbd3;
+    --wtzp-notification: #8edafc;
+    --wtzp-canvas: #eaeaea;
+    --wtzp-primary: #d5f9ba;
+    --wtzp-bg-message: #f3eeea;
+    --wtzp-icons: #b1b1b1;
+    --wtzp-white: #ffffff;
+    --wtzp-black: #1e1e1e;
+}
+
+/* #END region root */
+/* Region layout color and height + widht */
+body {
+    height: 100vh;
+    background:
+        linear-gradient(180deg, var(--wtzp-accent) 0%,
+            var(--wtzp-accent) 15%,
+            var(--wtzp-neutral) 15%,
+            var(--wtzp-neutral) 100%);
+}
+
+#app {
+    position: relative;
+    height: 100%;
+}
+
+/* #End Region layout color and height + widht */
+/* Region Container chat */
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 95%;
+}
+
+.cont_left {
+    width: 30%;
+    height: 900px;
+    background-color: var(--wtzp-notification);
+}
+
+.cont_right {
+    width: 70%;
+    background-color: var(--wtzp-white);
+}
+
+/* #End Region Container chat */
