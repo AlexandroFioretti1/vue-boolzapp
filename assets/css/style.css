@@ -1,9 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 /* region root */
 :root {
     --font-whatsapp: Helvetica, sans-serif;
@@ -46,15 +40,33 @@ body {
 
 .row {
     height: 100%;
-    width: 100%;
+
+}
+
+i {
+    padding: 0 1rem;
+}
+
+img {
+    margin-left: 1rem;
 }
 
 /* #End Region Container chat */
 /* region commons for cont right and left */
 .top_div_head {
     height: 70px;
-    width: 100%;
     background-color: var(--wtzp-coms);
+}
+
+.chat_container {
+    height: calc(100% - 140px);
+    background-image: url("../img/mine.jpg");
+}
+
+
+.bottom_chat {
+    height: 70px;
+    background-color: var(--wtzp-bg-message);
 }
 
 /* #End region commons for cont right and left */
