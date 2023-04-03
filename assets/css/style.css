@@ -83,7 +83,7 @@ img {
 .cont_left {
     width: 30%;
     height: 100%;
-    background-color: var(--wtzp-notification);
+    background-color: white;
 }
 
 /* #End region cont left */
