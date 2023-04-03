@@ -59,10 +59,34 @@
                         <input type="text" id="search_input" placeholder="Cerca o inizia una nuova chat">
                     </div>
                 </div>
-                <!-- End search box  -->
+                <!-- #End search box  -->
+                <!-- add dinamic list_chat whit Vue -->
                 <div id="list_chat">
-                    <!-- single contact -->
-                    <div class="p-3 active d-flex justify-content-between">
+                    <div>
+                        <div @click="selectUser(index)"
+                            v-show="contact.name.toLowerCase().includes(search.toLowerCase())"
+                            v-for="(contact, index) in contacts" class="user_contact p-3 justify-content-between"
+                            :class="index === activeUser ? 'active' : ''">
+                            <div class="user_info d-flex justify-content-between ">
+                                <div class="d-flex">
+                                    <img :src="contact.avatar" width=50
+                                        class="rounded-circle img-fluid align-self-center" alt="">
+                                    <div class=" ms-2">
+                                        <h6>{{contact.name}}</h6>
+                                        <span class="d_flex"
+                                            v-if="contact.messages.length > 0">{{contact.messages[contact.messages.length-1].message}}</span>
+                                    </div>
+                                </div>
+                                <span
+                                    v-if="contact.messages.length > 0">{{contact.messages[contact.messages.length-1].date.slice(11,
+                                    16)}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- #End add dinamic list_chat whit Vue -->
+
+                    <!--
+                            <div class="p-3 active d-flex justify-content-between">
                         <div class="user_info d-flex">
                             <img src="./assets/img/avatar_1.jpg" width=50 class="rounded-circle img-fluid" alt="">
                             <div class="d-flex flex-column ms-2">
@@ -74,9 +98,9 @@
                             <span>12.00</span>
                         </div>
                     </div>
-                    <!-- #End single contact -->
-                    <!-- single contact -->
-                    <div class="p-3 d-flex justify-content-between">
+                    -->
+                    <!--    
+                      <div class="p-3 d-flex justify-content-between">
                         <div class="user_info d-flex">
                             <img src="./assets/img/avatar_2.jpg" width=50 class="rounded-circle img-fluid" alt="">
                             <div class="d-flex flex-column ms-2">
@@ -87,9 +111,9 @@
                         <div class="user_date">
                             <span>12.00</span>
                         </div>
-                    </div>
-                    <!-- #End single contact -->
-                    <!-- single contact -->
+                    </div> 
+                    -->
+                    <!-- 
                     <div class=" p-3 d-flex justify-content-between">
                         <div class="user_info d-flex">
                             <img src="./assets/img/avatar_3.jpg" width=50 class="rounded-circle img-fluid" alt="">
@@ -102,9 +126,9 @@
                             <span>12.00</span>
                         </div>
                     </div>
-                    <!-- #End single contact -->
-                    <!-- single contact -->
-                    <div class="p-3 d-flex justify-content-between">
+                     -->
+                    <!-- 
+                         <div class="p-3 d-flex justify-content-between">
                         <div class="user_info d-flex">
                             <img src="./assets/img/avatar_4.jpg" width=50 class="rounded-circle img-fluid" alt="">
                             <div class="d-flex flex-column ms-2">
@@ -115,10 +139,10 @@
                         <div class="user_date">
                             <span>12.00</span>
                         </div>
-                    </div>
-                    <!-- #End single contact -->
-                    <!-- single contact -->
-                    <div class=" p-3 d-flex justify-content-between">
+                    </div> 
+                     -->
+                    <!-- 
+                         <div class=" p-3 d-flex justify-content-between">
                         <div class="user_info d-flex">
                             <img src="./assets/img/avatar_5.jpg" width=50 class="rounded-circle img-fluid" alt="">
                             <div class="d-flex flex-column ms-2">
@@ -129,9 +153,9 @@
                         <div class="user_date">
                             <span>12.00</span>
                         </div>
-                    </div>
-                    <!-- #End single contact -->
-                    <!-- single contact -->
+                    </div> 
+                    -->
+                    <!-- 
                     <div class="user_contact p-3 d-flex justify-content-between">
                         <div class="user_info d-flex">
                             <img src="./assets/img/avatar_6.jpg" width=50 class="rounded-circle img-fluid" alt="">
@@ -144,8 +168,8 @@
                             <span>12.00</span>
                         </div>
                     </div>
-                    <!-- #End single contact -->
-                    <!-- single contact -->
+                     -->
+                    <!--
                     <div class="user_contact p-3 d-flex justify-content-between">
                         <div class="user_info d-flex">
                             <img src="./assets/img/avatar_7.jpg" width=50 class="rounded-circle img-fluid" alt="">
@@ -157,10 +181,10 @@
                         <div class="user_date">
                             <span>12.00</span>
                         </div>
-                    </div>
-                    <!-- #End single contact -->
-                    <!-- single contact -->
-                    <div class="p-3 d-flex justify-content-between">
+                    </div> 
+                    -->
+                    <!-- 
+                        <div class="p-3 d-flex justify-content-between">
                         <div class="user_info d-flex">
                             <img src="./assets/img/avatar_8.jpg" width=50 class="rounded-circle img-fluid" alt="">
                             <div class="d-flex flex-column ms-2">
@@ -172,11 +196,16 @@
                             <span>12.00</span>
                         </div>
                     </div>
-                    <!-- #End single contact -->
+                    -->
                 </div>
                 <!-- #End contact_list -->
+
             </div>
             <!-- #end cont left whit all chat -->
+
+
+
+
             <!-- cont right whit current chat -->
             <div class="cont_right">
                 <div id="up_right" class="top_div_head justify-content-between align-items-center d-flex ">
@@ -203,7 +232,8 @@
                                 <div class="text_info d-flex flex-column">
                                     <div class="option_chat align-self-end"><i class="fa fa-angle-down"
                                             aria-hidden="true"></i></div>
-                                    <div class="text_hour">15.30<span><i class="fa-solid fa-check"></i></span></div>
+                                    <div class="text_hour">15.30<span><i class="fa-solid fa-check"></i></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -213,7 +243,8 @@
                                 <div class="text_info d-flex flex-column">
                                     <div class="option_chat align-self-end"><i class="fa fa-angle-down"
                                             aria-hidden="true"></i></div>
-                                    <div class="text_hour">15.50<span><i class="fa-solid fa-check"></i></span></div>
+                                    <div class="text_hour">15.50<span><i class="fa-solid fa-check"></i></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -223,7 +254,8 @@
                                 <div class="text_info d-flex flex-column">
                                     <div class="option_chat align-self-end"><i class="fa fa-angle-down"
                                             aria-hidden="true"></i></div>
-                                    <div class="text_hour">16.15<span><i class="fa-solid fa-check"></i></span></div>
+                                    <div class="text_hour">16.15<span><i class="fa-solid fa-check"></i></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
