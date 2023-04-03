@@ -29,12 +29,11 @@ body {
 }
 
 /* #End Region layout color and height + widht */
-/* Region Container chat */
+/* Region Container chat left whit all chat */
 
 #list_chat {
     height: calc(100% - 140px);
     overflow-y: auto;
-
 }
 
 .container {
@@ -47,7 +46,6 @@ body {
 
 .row {
     height: 100%;
-
 }
 
 img {
@@ -56,6 +54,50 @@ img {
 
 i {
     padding: 0 1rem;
+}
+
+.cont_left {
+    width: 30%;
+    height: 100%;
+    background-color: white;
+}
+
+.c_gray {
+    color: rgb(49, 49, 49);
+}
+
+.info_msg {
+    background-color: #8edafc;
+    height: 70px;
+}
+
+/* Region SerachBox */
+#search_box {
+    height: 30px;
+    background-color: var(--wtzp-bg-chat);
+}
+
+#search_input {
+    width: 100%;
+    border: 1px solid var(--wtzp-icons);
+}
+
+#border_serch {
+    width: 100%;
+    border: 1px solid var(--wtzp-icons);
+    height: 30px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+}
+
+/* #End Region SerachBox */
+/* #End Region Container chat */
+/* region cont right */
+.cont_right {
+    width: 70%;
+    background-color: var(--wtzp-white);
+    border-left: 1px solid var(--wtzp-icons);
 }
 
 #app_main_chat .chat {
@@ -95,7 +137,7 @@ i {
     color: var(--wtzp-double-checked);
 }
 
-/* #End Region Container chat */
+/* #End region cont right */
 /* region commons for cont right and left */
 .top_div_head {
     height: 70px;
@@ -113,29 +155,3 @@ i {
 }
 
 /* #End region commons for cont right and left */
-/* region cont right */
-
-.cont_right {
-    width: 70%;
-    background-color: var(--wtzp-white);
-    border-left: 1px solid var(--wtzp-icons);
-}
-
-/* #End region cont right */
-/* region cont left */
-.cont_left {
-    width: 30%;
-    height: 100%;
-    background-color: white;
-}
-
-.c_gray {
-    color: rgb(49, 49, 49);
-}
-
-.info_msg {
-    background-color: #8edafc;
-    height: 70px;
-}
-
-/* #End region cont left */
