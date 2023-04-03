@@ -6,7 +6,7 @@
     --wtzp-notification: #8edafc;
     --wtzp-coms: #eaeaea;
     --wtzp-primary: #d5f9ba;
-    --wtzp-bg-message: #f3eeea;
+    --wtzp-bg-chat: #f3eeea;
     --wtzp-icons: #b1b1b1;
     --wtzp-white: #ffffff;
     --wtzp-black: #1e1e1e;
@@ -30,6 +30,13 @@ body {
 
 /* #End Region layout color and height + widht */
 /* Region Container chat */
+
+#list_chat {
+    height: calc(100% - 140px);
+    overflow-y: auto;
+
+}
+
 .container {
     position: absolute;
     top: 50%;
@@ -43,12 +50,49 @@ body {
 
 }
 
+img {
+    margin-left: 1rem;
+}
+
 i {
     padding: 0 1rem;
 }
 
-img {
-    margin-left: 1rem;
+#app_main_chat .chat {
+    height: 70px;
+}
+
+.chat_received,
+.chat_sent {
+    width: 45%;
+    border-radius: 9px;
+    padding-left: 1rem;
+}
+
+.chat_sent {
+    margin-left: auto;
+    background-color: var(--wtzp-primary);
+}
+
+.chat_received {
+    background-color: var(--wtzp-white);
+}
+
+.option_info {
+    align-self: flex-end;
+    padding-right: 2px;
+    color: var(--wtzp-icons);
+}
+
+.text_hour {
+    font-size: x-small;
+    padding-right: 5px;
+    color: var(--wtzp-icons);
+}
+
+.text_hour span {
+    padding-left: 2px;
+    color: var(--wtzp-double-checked);
 }
 
 /* #End Region Container chat */
@@ -63,10 +107,9 @@ img {
     background-image: url("../img/mine.jpg");
 }
 
-
 .bottom_chat {
     height: 70px;
-    background-color: var(--wtzp-bg-message);
+    background-color: var(--wtzp-bg-chat);
 }
 
 /* #End region commons for cont right and left */
@@ -84,6 +127,15 @@ img {
     width: 30%;
     height: 100%;
     background-color: white;
+}
+
+.c_gray {
+    color: rgb(49, 49, 49);
+}
+
+.info_msg {
+    background-color: #8edafc;
+    height: 70px;
 }
 
 /* #End region cont left */
