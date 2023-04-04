@@ -185,8 +185,9 @@ createApp({
       const message = {
         message: this.newMessage,
         status: "sent",
-        date: new Date().toLocaleString(),
+        date: this.formatDate(),
       };
+      console.log(message.date);
       this.contacts[this.activeUser].messages.push(message);
       this.newMessage = "";
       this.answer();
@@ -196,10 +197,37 @@ createApp({
         const answerMessage = {
           message: "ok",
           status: "received",
-          date: new Date().toLocaleString(),
+          date: this.formatDate(),
         };
         this.contacts[this.activeUser].messages.push(answerMessage);
       }, 1500);
+    },
+    formatDate() {
+      const rightNow = new Date().toLocaleString();
+      let now = rightNow.split(",");
+      let dateArray = now[0].split("/");
+      if (dateArray[0] < 10) {
+        dateArray[0] = "0" + dateArray[0];
+      }
+      if (dateArray[1] < 10) {
+        dateArray[1] = "0" + dateArray[1];
+      }
+      let hoursArray = now[1].split(":");
+      if (hoursArray[0] < 10) {
+        hoursArray[0] = "0" + hoursArray[0];
+      }
+      if (hoursArray[1] < 10) {
+        hoursArray[1] = "0" + hoursArray[1];
+      }
+      if (hoursArray[2] < 10) {
+        hoursArray[2] = "0" + hoursArray[2];
+      }
+
+      dateArray = dateArray.join("/");
+      hoursArray = hoursArray.join(":");
+
+      now = dateArray + hoursArray;
+      return now;
     },
   },
 }).mount("#app");
