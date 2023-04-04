@@ -158,4 +158,8 @@ i {
     height: 100%;
 }
 
+.clicked {
+    background-color: var(--wtzp-icons);
+}
+
 /* #End region commons for cont right and left */

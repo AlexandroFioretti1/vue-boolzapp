@@ -14,6 +14,7 @@ createApp({
     return {
       activeUser: 0,
       search: "",
+      newMessage: "",
       contacts: [
         {
           name: "Michele",
@@ -178,5 +179,27 @@ createApp({
         },
       ],
     };
+  },
+  methods: {
+    sendMessage() {
+      const message = {
+        message: this.newMessage,
+        status: "sent",
+        date: new Date().toLocaleString(),
+      };
+      this.contacts[this.activeUser].messages.push(message);
+      this.newMessage = "";
+      this.answer();
+    },
+    answer() {
+      setTimeout(() => {
+        const answerMessage = {
+          message: "ok",
+          status: "received",
+          date: new Date().toLocaleString(),
+        };
+        this.contacts[this.activeUser].messages.push(answerMessage);
+      }, 1500);
+    },
   },
 }).mount("#app");
