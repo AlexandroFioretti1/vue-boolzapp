@@ -63,7 +63,7 @@
                 <!-- add dinamic list_chat whit Vue -->
                 <div id="list_chat">
                     <div>
-                        <div @click="selectUser(index)"
+                        <div @click="activeUser = index"
                             v-show="contact.name.toLowerCase().includes(search.toLowerCase())"
                             v-for="(contact, index) in contacts" class="user_contact p-3 justify-content-between"
                             :class="index === activeUser ? 'active' : ''">
@@ -84,136 +84,19 @@
                         </div>
                     </div>
                     <!-- #End add dinamic list_chat whit Vue -->
-
-                    <!--
-                            <div class="p-3 active d-flex justify-content-between">
-                        <div class="user_info d-flex">
-                            <img src="./assets/img/avatar_1.jpg" width=50 class="rounded-circle img-fluid" alt="">
-                            <div class="d-flex flex-column ms-2">
-                                <h6>Michele</h6>
-                                <span>Ultimo messaggio inviato</span>
-                            </div>
-                        </div>
-                        <div class="user_date">
-                            <span>12.00</span>
-                        </div>
-                    </div>
-                    -->
-                    <!--    
-                      <div class="p-3 d-flex justify-content-between">
-                        <div class="user_info d-flex">
-                            <img src="./assets/img/avatar_2.jpg" width=50 class="rounded-circle img-fluid" alt="">
-                            <div class="d-flex flex-column ms-2">
-                                <h6>Fabio</h6>
-                                <span>Ultimo messaggio inviato</span>
-                            </div>
-                        </div>
-                        <div class="user_date">
-                            <span>12.00</span>
-                        </div>
-                    </div> 
-                    -->
-                    <!-- 
-                    <div class=" p-3 d-flex justify-content-between">
-                        <div class="user_info d-flex">
-                            <img src="./assets/img/avatar_3.jpg" width=50 class="rounded-circle img-fluid" alt="">
-                            <div class="d-flex flex-column ms-2">
-                                <h6>Samuele</h6>
-                                <span>Ultimo messaggio inviato</span>
-                            </div>
-                        </div>
-                        <div class="user_date">
-                            <span>12.00</span>
-                        </div>
-                    </div>
-                     -->
-                    <!-- 
-                         <div class="p-3 d-flex justify-content-between">
-                        <div class="user_info d-flex">
-                            <img src="./assets/img/avatar_4.jpg" width=50 class="rounded-circle img-fluid" alt="">
-                            <div class="d-flex flex-column ms-2">
-                                <h6>Alessandro B.</h6>
-                                <span>Ultimo messaggio inviato</span>
-                            </div>
-                        </div>
-                        <div class="user_date">
-                            <span>12.00</span>
-                        </div>
-                    </div> 
-                     -->
-                    <!-- 
-                         <div class=" p-3 d-flex justify-content-between">
-                        <div class="user_info d-flex">
-                            <img src="./assets/img/avatar_5.jpg" width=50 class="rounded-circle img-fluid" alt="">
-                            <div class="d-flex flex-column ms-2">
-                                <h6>Alessandro L.</h6>
-                                <span>Ultimo messaggio inviato</span>
-                            </div>
-                        </div>
-                        <div class="user_date">
-                            <span>12.00</span>
-                        </div>
-                    </div> 
-                    -->
-                    <!-- 
-                    <div class="user_contact p-3 d-flex justify-content-between">
-                        <div class="user_info d-flex">
-                            <img src="./assets/img/avatar_6.jpg" width=50 class="rounded-circle img-fluid" alt="">
-                            <div class="d-flex flex-column ms-2">
-                                <h6>Claudia</h6>
-                                <span>Ultimo messaggio inviato</span>
-                            </div>
-                        </div>
-                        <div class="user_date">
-                            <span>12.00</span>
-                        </div>
-                    </div>
-                     -->
-                    <!--
-                    <div class="user_contact p-3 d-flex justify-content-between">
-                        <div class="user_info d-flex">
-                            <img src="./assets/img/avatar_7.jpg" width=50 class="rounded-circle img-fluid" alt="">
-                            <div class="d-flex flex-column ms-2">
-                                <h6>Federico</h6>
-                                <span>Ultimo messaggio inviato</span>
-                            </div>
-                        </div>
-                        <div class="user_date">
-                            <span>12.00</span>
-                        </div>
-                    </div> 
-                    -->
-                    <!-- 
-                        <div class="p-3 d-flex justify-content-between">
-                        <div class="user_info d-flex">
-                            <img src="./assets/img/avatar_8.jpg" width=50 class="rounded-circle img-fluid" alt="">
-                            <div class="d-flex flex-column ms-2">
-                                <h6>Davide</h6>
-                                <span>Ultimo messaggio inviato</span>
-                            </div>
-                        </div>
-                        <div>
-                            <span>12.00</span>
-                        </div>
-                    </div>
-                    -->
                 </div>
                 <!-- #End contact_list -->
-
             </div>
             <!-- #end cont left whit all chat -->
-
-
-
-
-            <!-- cont right whit current chat -->
+            <!-- cont right whit info user -->
             <div class="cont_right">
                 <div id="up_right" class="top_div_head justify-content-between align-items-center d-flex ">
                     <div class="d-flex">
-                        <img src="./assets/img/avatar_1.jpg" class="rounded-circle me-3" width=50 alt="">
+                        <img :src="contacts[activeUser].avatar" class="rounded-circle me-3" width=50 alt="">
                         <div>
-                            <h6>Michele</h6>
-                            <span>Ultimo accesso oggi alle 12.00</span>
+                            <h6>{{contacts[activeUser].name}}</h6>
+                            <span>Ultimo accesso
+                                {{contacts[activeUser].messages[contacts[activeUser].messages.length-1].date}}</span>
                         </div>
                     </div>
                     <div>
@@ -222,62 +105,43 @@
                         <i class="fa-sharp fa-solid fa-ellipsis-vertical fa-lg " style="color: #c6c9cd;"></i>
                     </div>
                 </div>
+                <!-- #Endcont right whit info user -->
                 <!-- container right whit chat current -->
                 <div class="chat_container">
                     <!-- current chat -->
                     <div id="app_main_chat" class="py-3 px-5 d-flex flex-column">
-                        <div class="chat">
-                            <div class="chat_sent d-flex justify-content-between align-items-center">
-                                <span>Hai portato il cane a spasso?</span>
+                        <div v-for="message in contacts[activeUser].messages" class="chat">
+                            <div class="d-flex justify-content-between align-items-center"
+                                :class="message.status === `sent` ? `chat_sent` :`chat_received`">
+                                <span>{{message.message}}</span>
                                 <div class="text_info d-flex flex-column">
                                     <div class="option_chat align-self-end"><i class="fa fa-angle-down"
                                             aria-hidden="true"></i></div>
-                                    <div class="text_hour">15.30<span><i class="fa-solid fa-check"></i></span>
+                                    <div class="text_hour">{{message.date.slice(11,16)}}<span><i
+                                                class="fa-solid fa-check"></i></span>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="chat">
-                            <div class="chat_sent d-flex justify-content-between align-items-center">
-                                <span>Ricordati di stendere i panni</span>
-                                <div class="text_info d-flex flex-column">
-                                    <div class="option_chat align-self-end"><i class="fa fa-angle-down"
-                                            aria-hidden="true"></i></div>
-                                    <div class="text_hour">15.50<span><i class="fa-solid fa-check"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="chat">
-                            <div class="chat_received d-flex justify-content-between align-items-center">
-                                <span>Tutto fatto!</span>
-                                <div class="text_info d-flex flex-column">
-                                    <div class="option_chat align-self-end"><i class="fa fa-angle-down"
-                                            aria-hidden="true"></i></div>
-                                    <div class="text_hour">16.15<span><i class="fa-solid fa-check"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- current chat -->
-                    </div>
-                    <!-- #end cont right whit current chat -->
-                </div>
-                <div class="d-flex text-center align-items-center bottom_chat justify-content-around">
-                    <i class="fa-regular fa-face-smile icon_color_dark fa-lg" style="color: #a9abad;"></i>
-                    <input type="text" class="form-control w-75" name="newchat" id="newchat"
-                        placeholder="Scrivi un messaggio">
-                    <i class="fa-solid fa-microphone icon_color_dark fa-lg" style="color: #a9abad;"></i>
-                </div>
-            </div>
-            <!-- #end container front page-->
-        </div>
-        <!-- #End app Js vue -->
 
-        <!-- EXTERNAL Vue3 JS CDN -->
-        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-        <!-- LINK main JS-->
-        <script src="./assets/js/main.js"></script>
+
+                        <!-- #end cont right whit current chat -->
+                    </div>
+                    <div class="d-flex text-center align-items-center bottom_chat justify-content-around">
+                        <i class="fa-regular fa-face-smile icon_color_dark fa-lg" style="color: #a9abad;"></i>
+                        <input type="text" class="form-control w-75" name="newchat" id="newchat"
+                            placeholder="Scrivi un messaggio">
+                        <i class="fa-solid fa-microphone icon_color_dark fa-lg" style="color: #a9abad;"></i>
+                    </div>
+                </div>
+                <!-- #end container front page-->
+            </div>
+            <!-- #End app Js vue -->
+
+            <!-- EXTERNAL Vue3 JS CDN -->
+            <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+            <!-- LINK main JS-->
+            <script src="./assets/js/main.js"></script>
 </body>
 
 </html>
